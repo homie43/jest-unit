@@ -83,14 +83,11 @@ describe('getData', () => {
     });
     test('Корректное значение', async () => {
         axios.get.mockReturnValue(response);
-        console.log(response);
         const data = await getData();
 
         // ожидания:
-
         // вызовется хотя бы 1 раз
         expect(axios.get).toBeCalledTimes(1);
-
         // вернет id в массиве строк // мы замокали 3 обекта, значит и ждем 3 id-шника
         expect(data).toEqual(['1', '2', '3']);
     });
